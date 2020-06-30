@@ -95,6 +95,7 @@ export class UserPreferencesRepository implements IUserPreferencesRepository {
         row[this.getColIndexByName(cols, "emailaddress")];
       userPreferences.linkCountPerDigest =
         row[this.getColIndexByName(cols, "linkcountperdigest")];
+      userPreferences.sortType = row[this.getColIndexByName(cols, "sorttype")];
       userPreferences.subscribed =
         row[this.getColIndexByName(cols, "subscribed")];
       userPreferences.createdAt =
