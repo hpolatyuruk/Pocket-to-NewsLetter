@@ -18,6 +18,8 @@ CREATE TABLE public.userpreferences
     with time zone NOT NULL,
     updatedat timestamp
     with time zone,
+    sorttype character varying
+    (10) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT userpreferences_pkey PRIMARY KEY
     (pocketusername)
 )
