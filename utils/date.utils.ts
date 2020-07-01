@@ -1,7 +1,7 @@
 import { DayOfWeek } from "../enums/day-of-week.enum.ts";
 
 export class DateUtils {
-  public static getDayOfWeekThreeLetterDayName(dayOfWeek: DayOfWeek): string {
+  public static getThreeLetterDayName(dayOfWeek: DayOfWeek): string {
     let threeLetterDayName: string = "";
 
     switch (dayOfWeek) {
