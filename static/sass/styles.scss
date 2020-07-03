@@ -22,6 +22,20 @@
         url("../fonts/Graphik-Regular.ttf") format("ttf");
 }
 
+@media only screen and (min-width: 769px) {
+    .reverse-row-order {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+.select select,
+.textarea,
+.input {
+    border-color: #cacaca !important;
+    color: #f43b53 !important;
+}
+
 // colors
 
 $pink: #f43b53;
@@ -32,7 +46,7 @@ $family-sans-serif: "Graphik",
 sans-serif;
 $text: #4a5568;
 $text-light: #718096;
-$text-strong: #d3505a;
+$text-strong: #f43b53;
 $primary: $pink;
 $link: $pink;
 $hr-height: 5px;
@@ -53,6 +67,7 @@ $input-shadow: none;
 @import "./bulma/sass/elements/content.sass";
 @import "./bulma/sass/elements/title.sass";
 @import "./bulma/sass/elements/box.sass";
+@import "./bulma/sass/elements/image.sass";
 @import "./bulma/sass/form/_all.sass";
 @import "./bulma/sass/layout/hero.sass";
 @import "./bulma/sass/layout/section.sass";
