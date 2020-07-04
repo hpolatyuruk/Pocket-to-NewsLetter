@@ -1,4 +1,4 @@
-import { Link } from "./../models/link.ts";
+import { Link } from "../dto/link.dto.ts";
 import { SortType } from "../enums/sort-type.enum.ts";
 
 export class PocketAPIException extends Error {

@@ -22,7 +22,7 @@ export class EmailDigestScheduler implements IEmailDigestScheduler {
     cron(preferences.cronExpression, async () => {
       const links = await this.pocketAPI.getLinks(
         preferences.accessToken,
-        preferences.linkCountPerDigest,
+        preferences.linkCountPerEmail,
         preferences.sortType,
       );
       if (!links || links.length === 0) return;

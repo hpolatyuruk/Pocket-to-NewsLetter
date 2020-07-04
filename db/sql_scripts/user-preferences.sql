@@ -10,7 +10,7 @@ CREATE TABLE public.userpreferences
     (50) COLLATE pg_catalog."default" NOT NULL,
     accesstoken character varying
     (32) COLLATE pg_catalog."default" NOT NULL,
-    linkcountperdigest integer NOT NULL,
+    linkcountperemail integer NOT NULL,
     cronexpression character varying
     (15) COLLATE pg_catalog."default" NOT NULL,
     subscribed boolean NOT NULL,
@@ -20,8 +20,10 @@ CREATE TABLE public.userpreferences
     with time zone,
     sorttype character varying
     (10) COLLATE pg_catalog."default" NOT NULL,
+    id character varying
+    (40) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT userpreferences_pkey PRIMARY KEY
-    (pocketusername)
+    (id)
 )
 
 TABLESPACE pg_default;

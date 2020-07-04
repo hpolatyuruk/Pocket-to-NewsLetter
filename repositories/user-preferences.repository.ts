@@ -8,12 +8,14 @@ export class UserPreferencesRepository implements IUserPreferencesRepository {
     try {
       await client.connect();
       const result = await client.query(
-        "INSERT INTO userpreferences(pocketusername, emailaddress, accesstoken, linkcountperdigest, cronexpression, subscribed, createdat) VALUES($1, $2, $3, $4, $5, $6, $7);",
+        "INSERT INTO userpreferences(id, pocketusername, emailaddress, accesstoken, linkcountperemail, cronexpression, sorttype, subscribed, createdat) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9);",
+        preferences.id,
         preferences.pocketUserName,
         preferences.emailAddress,
         preferences.accessToken,
-        preferences.linkCountPerDigest,
+        preferences.linkCountPerEmail,
         preferences.cronExpression,
+        preferences.sortType,
         preferences.subscribed,
         new Date(),
       );
@@ -27,12 +29,13 @@ export class UserPreferencesRepository implements IUserPreferencesRepository {
     try {
       await client.connect();
       const result = await client.query(
-        "UPDATE userpreferences SET emailaddress = $2, accesstoken = $3, linkcountperdigest = $4, cronexpression = $5, subscribed= $6, updatedat = $7 WHERE pocketusername = $1;",
-        preferences.pocketUserName,
+        "UPDATE userpreferences SET emailaddress = $2, accesstoken = $3, linkcountperemail = $4, cronexpression = $5, sorttype = $6, subscribed= $7, updatedat = $8 WHERE id = $1;",
+        preferences.id,
         preferences.emailAddress,
         preferences.accessToken,
-        preferences.linkCountPerDigest,
+        preferences.linkCountPerEmail,
         preferences.cronExpression,
+        preferences.sortType,
         preferences.subscribed,
         preferences.updatedAt,
       );
@@ -54,7 +57,20 @@ export class UserPreferencesRepository implements IUserPreferencesRepository {
     }
   }
 
-  async get(pocketUserName: string): Promise<UserPreferences> {
+  async getById(id: string): Promise<UserPreferences> {
+    try {
+      await client.connect();
+      const result = await client.query(
+        "SELECT * FROM userpreferences WHERE id = $1",
+        id,
+      );
+      return this.mapUserPreferencese(result)[0];
+    } finally {
+      await client.end();
+    }
+  }
+
+  async getByUserName(pocketUserName: string): Promise<UserPreferences> {
     try {
       await client.connect();
       const result = await client.query(
@@ -85,6 +101,7 @@ export class UserPreferencesRepository implements IUserPreferencesRepository {
 
     result.rows.map((row: any) => {
       const userPreferences = new UserPreferences();
+      userPreferences.id = row[this.getColIndexByName(cols, "id")];
       userPreferences.pocketUserName =
         row[this.getColIndexByName(cols, "pocketusername")];
       userPreferences.accessToken =
@@ -93,8 +110,8 @@ export class UserPreferencesRepository implements IUserPreferencesRepository {
         row[this.getColIndexByName(cols, "cronexpression")];
       userPreferences.emailAddress =
         row[this.getColIndexByName(cols, "emailaddress")];
-      userPreferences.linkCountPerDigest =
-        row[this.getColIndexByName(cols, "linkcountperdigest")];
+      userPreferences.linkCountPerEmail =
+        row[this.getColIndexByName(cols, "linkcountperemail")];
       userPreferences.sortType = row[this.getColIndexByName(cols, "sorttype")];
       userPreferences.subscribed =
         row[this.getColIndexByName(cols, "subscribed")];
