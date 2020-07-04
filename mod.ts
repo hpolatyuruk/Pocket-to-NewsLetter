@@ -1,5 +1,15 @@
 import "https://deno.land/x/dotenv/load.ts";
-import { Application, HttpError, Status } from "https://deno.land/x/oak/mod.ts";
+import {
+  Application,
+  HttpError,
+  Status,
+  send,
+} from "https://deno.land/x/oak/mod.ts";
+import {
+  viewEngine,
+  engineFactory,
+  adapterFactory,
+} from "https://deno.land/x/view_engine/mod.ts";
 import { Session } from "https://deno.land/x/session/mod.ts";
 import router from "./routes/routes.ts";
 import { AppBootstrapper } from "./services/bootstrapper.ts";
@@ -14,6 +24,17 @@ if (!consumerKey) {
 
 const bootStrapper = new AppBootstrapper(consumerKey);
 const app = new Application();
+
+// Register html template engine
+const handlebarsEngine = engineFactory.getHandlebarsEngine();
+const oakAdapter = adapterFactory.getOakAdapter();
+app.use(
+  viewEngine(oakAdapter, handlebarsEngine, {
+    viewRoot: "./static",
+    viewExt: ".html",
+    useCache: true,
+  }),
+);
 
 // Configuring Session for the Oak framework
 const session = new Session({ framework: "oak" });
@@ -71,6 +92,14 @@ app.use(async (ctx, next) => {
   }
   await next();
 });
+
+// Static file handler middleware
+// app.use(async (context, next) => {
+//   await send(context, context.request.url.pathname, {
+//     root: `${Deno.cwd()}/static`,
+//   });
+//   await next();
+// });
 
 app.use(router.routes());
 app.use(router.allowedMethods());
