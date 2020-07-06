@@ -9,6 +9,7 @@ import { CronExpressionBuilder } from "./../services/cron-expression-builder.ts"
 import { SortType } from "../enums/sort-type.enum.ts";
 import { DayOfWeek } from "../enums/day-of-week.enum.ts";
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
+import { ModelMapper } from "../services/model-to-dto-mapper.ts";
 
 const router = new Router();
 const pocketAPI = new PocketAPI(Deno.env.get("POCKET_CONSUMER_KEY") as string);
@@ -46,7 +47,7 @@ router.get("/preferences", async (ctx: any) => {
     ctx.response.redirect("/");
     return;
   }
-  ctx.render("preferences", preferences);
+  ctx.render("preferences", ModelMapper.toDto(preferences));
   return;
 });
 
@@ -74,7 +75,7 @@ router.get("/authorize/callback", async (ctx: any) => {
     if (userPreferences) {
       userPreferences.accessToken = accessToken;
       await userPreferencesRepository.update(userPreferences);
-      ctx.render("preferences", userPreferences);
+      ctx.render("preferences", ModelMapper.toDto(userPreferences));
       return;
     }
     const dto = new UserPreferencesDto();
@@ -107,7 +108,6 @@ router.post("/save-preferences", async (ctx: any) => {
   }
 
   const dto: UserPreferencesDto = (await ctx.request.body()).value;
-  console.log(dto);
 
   if (!dto.pocketUserName || dto.pocketUserName.trim() === "") {
     ctx.response.status = 400;

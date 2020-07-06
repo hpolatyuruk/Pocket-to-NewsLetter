@@ -67,7 +67,7 @@
                             </div>
                         </div>
 
-                        <div class="field">
+                        <div id="weeklyOnDay" class="field">
                             <label class="label">every:</label>
                             <div class="control">
                                 <div class="select">
@@ -122,18 +122,36 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+
             const emailAddress = $('#hdnEmailAddress').val();
             $("#emailAddress").val(emailAddress);
+
             const linkCountPerEmail = $('#hdnLinkCountPerEmail').val();
             $("#linkCountPerEmail").val(linkCountPerEmail);
+
             const emailFrequency = $('#hdnEmailFrequency').val();
             $("#emailFrequency").val(emailFrequency);
+
             const weeklyOnDay = $('#hdnWeeklyOnDay').val();
-            $("#weeklyOnDay").val(weeklyOnDay);
+            $('#weeklyOnDay option[value=' + weeklyOnDay + ']').prop('selected', 'selected');
+
             const sortType = $('#hdnSortType').val();
             $("#sortType").val(sortType);
+
             const subscribed = $('#hdnSubscribed').val();
             $("#subscribed").prop("checked", subscribed == 'true');
+
+            if (emailFrequency !== 'weekly') {
+                $("div#weeklyOnDay").hide();
+            }
+
+            $('#emailFrequency').on('change', function () {
+                if (this.value === 'weekly') {
+                    $("div#weeklyOnDay").show();
+                } else {
+                    $("div#weeklyOnDay").hide();
+                }
+            });
 
             // Attach a submit handler to the form
             $("#preferencesForm").submit(function (event) {

@@ -1,7 +1,7 @@
-import { DayOfWeek } from '../enums/day-of-week.enum.ts';
+import { DayOfWeek } from "../enums/day-of-week.enum.ts";
 
-const EVERY_CHAR = '*';
-const DEFAULT_HOUR = '6';
+export const EVERY_CHAR = "*";
+export const DEFAULT_HOUR = "6";
 
 export class CronExpressionBuilder {
   private secondPart: string = EVERY_CHAR;
@@ -12,7 +12,7 @@ export class CronExpressionBuilder {
   private dayOfWeekPart: string = EVERY_CHAR;
 
   private constructor(private readonly cronExpression: string) {
-    const parts = cronExpression.split(' ');
+    const parts = cronExpression.split(" ");
 
     this.secondPart = parts[0];
     this.minutePart = parts[1];
@@ -35,28 +35,28 @@ export class CronExpressionBuilder {
   }
 
   public daily(): CronExpressionBuilder {
-    this.secondPart = '0';
-    this.minutePart = '0';
+    this.secondPart = "0";
+    this.minutePart = "0";
     this.hourPart = DEFAULT_HOUR;
     this.dayOfMonthPart = EVERY_CHAR;
     this.monthPart = EVERY_CHAR;
-    this.dayOfWeekPart = '?';
+    this.dayOfWeekPart = "?";
     return this;
   }
 
   public everyNDay(nDay: number): CronExpressionBuilder {
-    this.secondPart = '0';
-    this.minutePart = '0';
+    this.secondPart = "0";
+    this.minutePart = "0";
     this.hourPart = DEFAULT_HOUR;
     this.dayOfMonthPart = nDay === 1 ? EVERY_CHAR : `*/${nDay}`;
     this.monthPart = EVERY_CHAR;
-    this.dayOfWeekPart = '?';
+    this.dayOfWeekPart = "?";
     return this;
   }
 
   public weekly(dayOfWeek: DayOfWeek): CronExpressionBuilder {
-    this.secondPart = '0';
-    this.minutePart = '0';
+    this.secondPart = "0";
+    this.minutePart = "0";
     this.hourPart = DEFAULT_HOUR;
     this.dayOfMonthPart = EVERY_CHAR;
     this.monthPart = EVERY_CHAR;
