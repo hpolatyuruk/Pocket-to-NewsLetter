@@ -90,10 +90,11 @@ router.get("/authorize/callback", async (ctx: any) => {
   } catch (e) {
     if (e instanceof PocketAPIException) {
       if (e.code === 182) { // User rejected code.
-        // TODO: Show error html here
-        console.log("Rejected");
+        ctx.render("rejected", {});
+        return;
       }
     }
+    ctx.render("error", {});
   }
 });
 

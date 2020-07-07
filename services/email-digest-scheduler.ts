@@ -17,6 +17,7 @@ export class EmailDigestScheduler implements IEmailDigestScheduler {
       console.log(
         `User ${preferences.emailAddress} unsubscribed. Skipped scheduling.`,
       );
+      return;
     }
 
     cron(preferences.cronExpression, async () => {
