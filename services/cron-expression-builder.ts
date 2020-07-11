@@ -88,5 +88,5 @@ export class CronExpressionBuilder {
     return `${second} ${minute} ${hour} ${dayOfMonth} ${month} ${dayOfWeek}`;
   }
 
-  //endregion
+  //end region
 }

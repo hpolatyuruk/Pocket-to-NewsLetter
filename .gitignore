@@ -26,3 +26,5 @@ static/sass/bulma
 ssh
 *.pub
 *.ppk
+
+.DS_Store
