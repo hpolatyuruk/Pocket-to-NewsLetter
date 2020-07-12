@@ -21,7 +21,7 @@
 </head>
 
 <body bgcolor="#fefefe" leftmargin="0" marginheight="0" marginwidth="0" topmargin="0" data-gr-c-s-loaded="true">
-  <div class="preview-text">Issue #103 — Top 30 stories of July 05, 2020</div>
+  <div class="preview-text">{{linkCountPerEmail}} pokcket links delivered on {{issueDateString}}</div>
   <table class="body" data-made-with-foundation="">
     <tbody>
       <tr>
@@ -44,8 +44,8 @@
                           <tr>
                             <td valign="top">
                               <img width="380" src="./logo_1.png" alt="Logo 570 p1@2x min">
-                              <p style="margin: 0 0 0 20px"><span style="color: gray; text-decoration: none">Issue #103
-                                  — July 05, 2020</span></p>
+                              <p style="margin: 0 0 0 20px"><span style="color: gray; text-decoration: none">
+                                {{issueDateString}}</span></p>
                             </td>
                             <td valign="top"><img width="190" src="./logo_2.png"
                                 alt="Logo 570 p2@2x min"></td>
@@ -87,53 +87,7 @@
                           </tr>
                         </tbody>
                       </table>
-                      <table class="row">
-                        <tbody>
-                          <tr>
-                            <th class="small-24 large-24 columns first last">
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <th>
-                                      <table style="margin-bottom: 18px" class="row">
-                                        <tbody>
-                                          <tr>
-                                            <th class="show-for-large small-24 large-1 columns first"
-                                              style="vertical-align: top; text-align: right; color: #CCC; font-size: 0.8em; line-height: 20px; font-weight: 700">
-                                              <table>
-                                                <tbody>
-                                                  <tr>
-                                                    <th>
-                                                      <p class="text-right story-index" style="margin-right: 10px">1</p>
-                                                    </th>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </th>
-                                            <th class="small-24 large-22 columns last">
-                                              <table>
-                                                <tbody>
-                                                  <tr>
-                                                    <th>
-                                                      <a class="story-title"
-                                                        href="https://www.hndigest.com/m/NlDMQuGLgcZlDDyj1Qpn9A==/s/185504">The
-                                                        End of the Redis Adventure</a>
-                                                    </th>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </th>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
+                      {{rows}}
                       <table class="callout">
                         <tbody>
                           <tr>
@@ -147,10 +101,9 @@
                                           <tr>
                                             <th>
                                               <p class="text-center">This digest was generated for
-                                                h.polatyuruk@gmail.com on 5 July, 7:07am and contains the top 30 stories
-                                                between 28 June, 2:00am and 5 July, 2:00am</p>
-                                              <p class="text-center">Your next delivery is on Sunday, 12 July at 7:00am.
-                                                <a href="https://www.hndigest.com/m/NlDMQuGLgcZlDDyj1Qpn9A==/settings">Adjust
+                                                {{emailAddress}} on {{issueDateString}} and contains the {{linkCountPerEmail}} pocket links.</p>
+                                              <p class="text-center">Your next delivery is on {{nextIssueDateString}}.
+                                                <a href="https://www.pocketdigest.io/preferences?token={{userId}}">Adjust
                                                   these settings</a>. </p>
                                             </th>
                                             <th class="expander"></th>
@@ -169,12 +122,11 @@
                                         <tbody>
                                           <tr>
                                             <th>
-                                              <p class="text-center"><a
-                                                  href="https://www.hndigest.com/privacy_policy">Privacy Policy</a> | <a
-                                                  href="https://www.hndigest.com/m/NlDMQuGLgcZlDDyj1Qpn9A==/unsubscribe">Instant
-                                                  Unsubscribe</a> | <a
-                                                  href="https://www.hndigest.com/m/NlDMQuGLgcZlDDyj1Qpn9A==/settings">Settings</a>
-                                                | <a href="mailto:hello@hndigest.com">hello@hndigest.com</a></p>
+                                              <p class="text-center">
+                                                <a href="https://www.pocketdigest.io/privacy">Privacy Policy</a> | 
+                                                <a href="https://www.pocketdigest.io/faq">FAQ</a> |
+                                                <a href="https://www.pocketdigest.io/preferences?token={{userId}}">Settings</a> | 
+                                                <a href="mailto:pocketdigest@gmail.com">pocketdigest@gmail.com</a></p>
                                             </th>
                                             <th class="expander"></th>
                                           </tr>
@@ -200,5 +152,4 @@
     </tbody>
   </table>
 </body>
-
 </html>
