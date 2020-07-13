@@ -2,7 +2,7 @@ import { DayOfWeek } from "../enums/day-of-week.enum.ts";
 import { EmailFrequency } from "../enums/email-frequency.enum.ts";
 import { EVERY_CHAR, DEFAULT_HOUR } from "./cron-expression-builder.ts";
 
-const DAY_OF_WEEK_NAME_LENGTH = 3;
+const DAY_OF_WEEK_NAME_LENGTH = 1;
 
 export class CronExpressionParser {
   private readonly cronExpression: string;
@@ -49,8 +49,9 @@ export class CronExpressionParser {
   }
 
   parseWeeklyOnDay(): DayOfWeek {
-    return this.cronExpression.substring(
+    const dayOfWeekAsString = this.cronExpression.substring(
       this.cronExpression.length - DAY_OF_WEEK_NAME_LENGTH,
-    ) as DayOfWeek;
+    );
+    return Number(dayOfWeekAsString) as DayOfWeek
   }
 }

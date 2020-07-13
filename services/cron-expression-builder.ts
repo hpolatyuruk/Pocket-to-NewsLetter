@@ -60,7 +60,7 @@ export class CronExpressionBuilder {
     this.hourPart = DEFAULT_HOUR;
     this.dayOfMonthPart = EVERY_CHAR;
     this.monthPart = EVERY_CHAR;
-    this.dayOfWeekPart = dayOfWeek;
+    this.dayOfWeekPart = dayOfWeek.toString();
     return this;
   }
 
