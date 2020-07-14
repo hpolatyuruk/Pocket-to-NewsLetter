@@ -22,7 +22,7 @@ export class EmailDigestScheduler implements IEmailDigestScheduler {
       );
       return;
     }
-    console.log(preferences.cronExpression);
+
     cron(preferences.cronExpression, async () => {
       const links = await this.pocketAPI.getLinks(
         preferences.accessToken,
@@ -30,7 +30,6 @@ export class EmailDigestScheduler implements IEmailDigestScheduler {
         preferences.sortType,
       );
       if (!links || links.length === 0) return;
-      console.log(links.length);
       const htmlContent = await this.htmlEmailGenerator.generate(preferences, links);
       await this.emailSender.send(preferences.emailAddress, "Test Subject", htmlContent);
     });

@@ -18,15 +18,23 @@ export class HtmlEmailGenerator implements IHtmlEmailGenerator {
         emailTemplateDto.emailAddress = userPreferences.emailAddress;
         emailTemplateDto.linkCountPerEmail = userPreferences.linkCountPerEmail;
         emailTemplateDto.userId = userPreferences.id;
-        emailTemplateDto.issueDateString = new Date().toISOString();
+        emailTemplateDto.issueDateString = new Date().toDateString();
         emailTemplateDto.nextIssueDateString = new Date().toDateString();
 
         let rows: string = '';
         const rowTemplate = await Deno.readTextFile(`${Deno.cwd()}/static/email-template/link-row.html`);
-
+        let rowNo = 1;
         for(const link of links){
-            const renderedRow = this.handlebarsEngine(rowTemplate, link);
+            const url = new URL(link.url);
+            const renderedRow = this.handlebarsEngine(rowTemplate, {
+                rowNo: rowNo,
+                url: link.url,
+                title: link.title ? link.title : link.url,
+                hostname: url.hostname,
+                protocol: url.protocol,
+            });
             rows += renderedRow;
+            rowNo++;
         }
 
         emailTemplateDto.rows = rows;
