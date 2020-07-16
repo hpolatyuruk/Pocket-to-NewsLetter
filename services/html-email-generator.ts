@@ -22,7 +22,7 @@ export class HtmlEmailGenerator implements IHtmlEmailGenerator {
         emailTemplateDto.nextIssueDateString = new Date().toDateString();
 
         let rows: string = '';
-        const rowTemplate = await Deno.readTextFile(`${Deno.cwd()}/static/email-template/link-row.html`);
+        const rowTemplate = await Deno.readTextFile(`${Deno.cwd()}/static/email-template/test-row.html`);
         let rowNo = 1;
         for(const link of links){
             const url = new URL(link.url);
@@ -38,7 +38,7 @@ export class HtmlEmailGenerator implements IHtmlEmailGenerator {
         }
 
         emailTemplateDto.rows = rows;
-        const htmlTemplate = await Deno.readTextFile(`${Deno.cwd()}/static/email-template/template.html`);
+        const htmlTemplate = await Deno.readTextFile(`${Deno.cwd()}/static/email-template/test.html`);
         return Html5Entities.decode(this.handlebarsEngine(htmlTemplate, emailTemplateDto));
     }
 }
