@@ -4,490 +4,142 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta content="width=device-width" name="viewport">
-  <style>@media only screen {
-    html {
-        min-height: 100%;
-        background: #fefefe
-        }
+  <style type="text/css">
+   /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+   body{
+        margin:0;
+        padding:0;
     }
-td.columns table:not(.button) {width:100%}
-td.column table:not(.button) {width:100%}
-th.columns table:not(.button) {width:100%}
-th.column table:not(.button) {width:100%}
-@media only screen and (max-width: 600px) {
-    .small-float-center {
-        margin: 0 auto;
-        float: none;
-        text-align: center
-        }
-    .small-text-center {
-        text-align: center
-        }
-    .small-text-left {
-        text-align: left
-        }
-    .small-text-right {
-        text-align: right
-        }
-    }
-@media only screen and (max-width: 600px) {
-    .hide-for-large {
-        display: block;
-        width: auto;
-        overflow: visible;
-        max-height: none;
-        font-size: inherit;
-        line-height: inherit
-        }
-    }
-@media only screen and (max-width: 600px) {
-    table.body table.container .hide-for-large, table.body table.container .row.hide-for-large {
-        display: table;
-        width: 100%
-        }
-    }
-@media only screen and (max-width: 600px) {
-    table.body table.container .callout-inner.hide-for-large {
-        display: table-cell;
-        width: 100%
-        }
-    }
-@media only screen and (max-width: 600px) {
-    table.body table.container .show-for-large {
-        display: none;
-        width: 0;
-        overflow: hidden
-        }
-    }
-h1 a:visited {color:#2199e8}
-h2 a:visited {color:#2199e8}
-h3 a:visited {color:#2199e8}
-h4 a:visited {color:#2199e8}
-h5 a:visited {color:#2199e8}
-h6 a:visited {color:#2199e8}
-table.button:hover table tr td a {color:#fefefe}
-table.button:active table tr td a {color:#fefefe}
-table.button table tr td a:visited {color:#fefefe}
-table.button.tiny:hover table tr td a {color:#fefefe}
-table.button.tiny:active table tr td a {color:#fefefe}
-table.button.tiny table tr td a:visited {color:#fefefe}
-table.button.small:hover table tr td a {color:#fefefe}
-table.button.small:active table tr td a {color:#fefefe}
-table.button.small table tr td a:visited {color:#fefefe}
-table.button.large:hover table tr td a {color:#fefefe}
-table.button.large:active table tr td a {color:#fefefe}
-table.button.large table tr td a:visited {color:#fefefe}
-table.button:hover table td {background:#147dc2;color:#fefefe}
-table.button:visited table td {background:#147dc2;color:#fefefe}
-table.button:active table td {background:#147dc2;color:#fefefe}
-table.button:hover table a {border:0 solid #147dc2}
-table.button:visited table a {border:0 solid #147dc2}
-table.button:active table a {border:0 solid #147dc2}
-table.button.secondary:hover table td {background:#919191;color:#fefefe}
-table.button.secondary:hover table a {border:0 solid #919191}
-table.button.secondary:hover table td a {color:#fefefe}
-table.button.secondary:active table td a {color:#fefefe}
-table.button.secondary table td a:visited {color:#fefefe}
-table.button.success:hover table td {background:#23bf5d}
-table.button.success:hover table a {border:0 solid #23bf5d}
-table.button.alert:hover table td {background:#e23317}
-table.button.alert:hover table a {border:0 solid #e23317}
-table.button.warning:hover table td {background:#cc8b00}
-table.button.warning:hover table a {border:0 solid #cc8b00}
-.thumbnail:hover {box-shadow:0 0 6px 1px rgba(33, 153, 232, 0.5)}
-.thumbnail:focus {box-shadow:0 0 6px 1px rgba(33, 153, 232, 0.5)}
-@media only screen and (max-width: 600px) {
-    table.body img {
-        width: auto;
-        height: auto
-        }
-    table.body center {
-        min-width: 0
-        }
-    table.body .container {
-        width: 95%
-        }
-    table.body .columns, table.body .column {
-        height: auto;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        padding-left: 6px;
-        padding-right: 6px
-        }
-    table.body .columns .column, table.body .columns .columns, table.body .column .column, table.body .column .columns {
-        padding-left: 0;
-        padding-right: 0
-        }
-    table.body .collapse .columns, table.body .collapse .column {
-        padding-left: 0;
-        padding-right: 0
-        }
-    td.small-1, th.small-1 {
-        display: inline-block;
-        width: 4.166666%
-        }
-    td.small-2, th.small-2 {
-        display: inline-block;
-        width: 8.333333%
-        }
-    td.small-3, th.small-3 {
-        display: inline-block;
-        width: 12.5%
-        }
-    td.small-4, th.small-4 {
-        display: inline-block;
-        width: 16.666666%
-        }
-    td.small-5, th.small-5 {
-        display: inline-block;
-        width: 20.833333%
-        }
-    td.small-6, th.small-6 {
-        display: inline-block;
-        width: 25%
-        }
-    td.small-7, th.small-7 {
-        display: inline-block;
-        width: 29.166666%
-        }
-    td.small-8, th.small-8 {
-        display: inline-block;
-        width: 33.333333%
-        }
-    td.small-9, th.small-9 {
-        display: inline-block;
-        width: 37.5%
-        }
-    td.small-10, th.small-10 {
-        display: inline-block;
-        width: 41.666666%
-        }
-    td.small-11, th.small-11 {
-        display: inline-block;
-        width: 45.833333%
-        }
-    td.small-12, th.small-12 {
-        display: inline-block;
-        width: 50%
-        }
-    td.small-13, th.small-13 {
-        display: inline-block;
-        width: 54.166666%
-        }
-    td.small-14, th.small-14 {
-        display: inline-block;
-        width: 58.333333%
-        }
-    td.small-15, th.small-15 {
-        display: inline-block;
-        width: 62.5%
-        }
-    td.small-16, th.small-16 {
-        display: inline-block;
-        width: 66.666666%
-        }
-    td.small-17, th.small-17 {
-        display: inline-block;
-        width: 70.833333%
-        }
-    td.small-18, th.small-18 {
-        display: inline-block;
-        width: 75%
-        }
-    td.small-19, th.small-19 {
-        display: inline-block;
-        width: 79.166666%
-        }
-    td.small-20, th.small-20 {
-        display: inline-block;
-        width: 83.333333%
-        }
-    td.small-21, th.small-21 {
-        display: inline-block;
-        width: 87.5%
-        }
-    td.small-22, th.small-22 {
-        display: inline-block;
-        width: 91.666666%
-        }
-    td.small-23, th.small-23 {
-        display: inline-block;
-        width: 95.833333%
-        }
-    td.small-24, th.small-24 {
-        display: inline-block;
-        width: 100%
-        }
-    .columns td.small-24, .column td.small-24, .columns th.small-24, .column th.small-24 {
-        display: block;
-        width: 100%
-        }
-    table.body td.small-offset-1, table.body th.small-offset-1 {
-        margin-left: 4.166666%;
-        margin-left: 4.166666%
-        }
-    table.body td.small-offset-2, table.body th.small-offset-2 {
-        margin-left: 8.333333%;
-        margin-left: 8.333333%
-        }
-    table.body td.small-offset-3, table.body th.small-offset-3 {
-        margin-left: 12.5%;
-        margin-left: 12.5%
-        }
-    table.body td.small-offset-4, table.body th.small-offset-4 {
-        margin-left: 16.666666%;
-        margin-left: 16.666666%
-        }
-    table.body td.small-offset-5, table.body th.small-offset-5 {
-        margin-left: 20.833333%;
-        margin-left: 20.833333%
-        }
-    table.body td.small-offset-6, table.body th.small-offset-6 {
-        margin-left: 25%;
-        margin-left: 25%
-        }
-    table.body td.small-offset-7, table.body th.small-offset-7 {
-        margin-left: 29.166666%;
-        margin-left: 29.166666%
-        }
-    table.body td.small-offset-8, table.body th.small-offset-8 {
-        margin-left: 33.333333%;
-        margin-left: 33.333333%
-        }
-    table.body td.small-offset-9, table.body th.small-offset-9 {
-        margin-left: 37.5%;
-        margin-left: 37.5%
-        }
-    table.body td.small-offset-10, table.body th.small-offset-10 {
-        margin-left: 41.666666%;
-        margin-left: 41.666666%
-        }
-    table.body td.small-offset-11, table.body th.small-offset-11 {
-        margin-left: 45.833333%;
-        margin-left: 45.833333%
-        }
-    table.body td.small-offset-12, table.body th.small-offset-12 {
-        margin-left: 50%;
-        margin-left: 50%
-        }
-    table.body td.small-offset-13, table.body th.small-offset-13 {
-        margin-left: 54.166666%;
-        margin-left: 54.166666%
-        }
-    table.body td.small-offset-14, table.body th.small-offset-14 {
-        margin-left: 58.333333%;
-        margin-left: 58.333333%
-        }
-    table.body td.small-offset-15, table.body th.small-offset-15 {
-        margin-left: 62.5%;
-        margin-left: 62.5%
-        }
-    table.body td.small-offset-16, table.body th.small-offset-16 {
-        margin-left: 66.666666%;
-        margin-left: 66.666666%
-        }
-    table.body td.small-offset-17, table.body th.small-offset-17 {
-        margin-left: 70.833333%;
-        margin-left: 70.833333%
-        }
-    table.body td.small-offset-18, table.body th.small-offset-18 {
-        margin-left: 75%;
-        margin-left: 75%
-        }
-    table.body td.small-offset-19, table.body th.small-offset-19 {
-        margin-left: 79.166666%;
-        margin-left: 79.166666%
-        }
-    table.body td.small-offset-20, table.body th.small-offset-20 {
-        margin-left: 83.333333%;
-        margin-left: 83.333333%
-        }
-    table.body td.small-offset-21, table.body th.small-offset-21 {
-        margin-left: 87.5%;
-        margin-left: 87.5%
-        }
-    table.body td.small-offset-22, table.body th.small-offset-22 {
-        margin-left: 91.666666%;
-        margin-left: 91.666666%
-        }
-    table.body td.small-offset-23, table.body th.small-offset-23 {
-        margin-left: 95.833333%;
-        margin-left: 95.833333%
-        }
-    table.body table.columns td.expander, table.body table.columns th.expander {
-        display: none
-        }
-    table.body .right-text-pad, table.body .text-pad-right {
-        padding-left: 10px
-        }
-    table.body .left-text-pad, table.body .text-pad-left {
-        padding-right: 10px
-        }
-    table.menu {
-        width: 100%
-        }
-    table.menu td, table.menu th {
-        width: auto;
-        display: inline-block
-        }
-    table.menu.vertical td, table.menu.vertical th, table.menu.small-vertical td, table.menu.small-vertical th {
-        display: block
-        }
-    table.menu[align="center"] {
-        width: auto
-        }
-    table.button.small-expand, table.button.small-expanded {
-        width: 100%
-        }
-    table.button.small-expand table, table.button.small-expanded table {
-        width: 100%
-        }
-    table.button.small-expand table a, table.button.small-expanded table a {
-        text-align: center;
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0
-        }
-    table.button.small-expand center, table.button.small-expanded center {
-        min-width: 0
-        }
-    }
-@media only screen and (max-width: 640px) {
-    .pad-mobile {
-        display: block
-        }
-    .pad-desktop {
-        display: none
-        }
-    }</style>
-</head>
 
-<body bgcolor="#fefefe" leftmargin="0" marginheight="0" marginwidth="0" topmargin="0" data-gr-c-s-loaded="true" style="-moz-box-sizing:border-box; -ms-text-size-adjust:100%; -webkit-box-sizing:border-box; -webkit-text-size-adjust:100%; box-sizing:border-box; margin:0; min-width:100%; padding:0; color:#0a0a0a; font-weight:normal; line-height:1.3; text-align:left; font-size:16px; width:100%" align="left" width="100%">
-  <div style="color:#333; display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden">{{linkCountPerEmail}} pokcket links delivered on {{issueDateString}}</div>
-  <table data-made-with-foundation="" style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; background:#fefefe; height:100%; width:100%; color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; font-size:16px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left" valign="top" height="100%" width="100%">
-    <tbody>
-      <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-        <td align="left" valign="top" style="-moz-hyphens:auto; -webkit-hyphens:auto; hyphens:auto; word-wrap:break-word; padding:0; text-align:left; vertical-align:top; color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; font-size:16px; border:none; border-collapse:collapse">
-          <center style="min-width:600px; width:100%" width="100%">
-            <container>
-              <table align="inherit" style="border-collapse:collapse; border-spacing:0; padding:0; text-align:inherit; vertical-align:top; background:#fefefe; margin:0 auto; width:600px" valign="top" width="600">
-                <tbody>
-                  <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                    <td style="-moz-hyphens:auto; -webkit-hyphens:auto; hyphens:auto; word-wrap:break-word; padding:0; text-align:left; vertical-align:top; color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; font-size:16px; border:none; border-collapse:collapse" align="left" valign="top">
-                      <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; width:100%" align="left" valign="top" width="100%">
-                        <tbody>
-                          <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                            <td height="20px" style="-moz-hyphens:auto; -webkit-hyphens:auto; hyphens:auto; word-wrap:break-word; padding:0; text-align:left; vertical-align:top; color:#0a0a0a; font-weight:normal; line-height:20px; margin:0; font-size:20px; border:none; border-collapse:collapse" align="left" valign="top"> </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; position:relative; width:100%; display:table" align="left" valign="top" width="100%">
-                        <tbody>
-                          <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                            <td valign="top" style="-moz-hyphens:auto; -webkit-hyphens:auto; hyphens:auto; word-wrap:break-word; padding:0; text-align:left; vertical-align:top; color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; font-size:16px; border:none; border-collapse:collapse" align="left">
-                              <h1 style="color:#f43b53; font-weight:bold; line-height:1.3; margin:0; padding:0; text-align:left; margin-bottom:10px; word-wrap:normal; font-size:50px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Personal Pocket Digest</h1>
-                              <p style="color:#0a0a0a; font-weight:normal; line-height:1.6; margin:0; padding:0; text-align:left; font-size:14px; margin-bottom:10px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif; color:gray; text-decoration:none">
-                                {{issueDateString}}</span></p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; width:100%" align="left" valign="top" width="100%">
-                        <tbody>
-                          <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                            <td height="20px" style="-moz-hyphens:auto; -webkit-hyphens:auto; hyphens:auto; word-wrap:break-word; padding:0; text-align:left; vertical-align:top; color:#0a0a0a; font-weight:normal; line-height:20px; margin:0; font-size:20px; border:none; border-collapse:collapse" align="left" valign="top"> </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; position:relative; width:100%; display:table" align="left" valign="top" width="100%">
-                        <tbody>
-                          <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                            <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0 auto; padding:0; text-align:left; font-size:16px; padding-bottom:0; padding-left:6px; padding-right:6px; width:574px" align="left" width="574">
-                              <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                                <tbody>
-                                  <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                                    <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; font-size:16px" align="left">
-                                      <p style="color:#0a0a0a; font-weight:normal; line-height:1.6; margin:0; padding:0; text-align:left; font-size:17px; margin-bottom:10px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">You receive this email because you are subscribed to <a href="https://www.pocketdigest.xyz/" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Personal Pocket Digest</a>. You can <a href="https://www.pocketdigest.xyz/m/NlDMQuGLgcZlDDyj1Qpn9A==" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">open it in the
-                                          browser</a> if you prefer.</p>
-                                    </th>
-                                    <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; font-size:16px; visibility:hidden; width:0" align="left" width="0"></th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; width:100%" align="left" valign="top" width="100%">
-                        <tbody>
-                          <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                            <td height="20px" style="-moz-hyphens:auto; -webkit-hyphens:auto; hyphens:auto; word-wrap:break-word; padding:0; text-align:left; vertical-align:top; color:#0a0a0a; font-weight:normal; line-height:20px; margin:0; font-size:20px; border:none; border-collapse:collapse" align="left" valign="top"> </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      {{rows}}
-                      <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; margin-bottom:16px" align="left" valign="top">
-                        <tbody>
-                          <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                            <th style="color:black; font-weight:normal; line-height:1.3; margin:0; padding:10px; text-align:left; font-size:16px; background:#ebebeb; border:0; width:100%" align="left" width="100%">
-                              <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; position:relative; width:100%; display:table" align="left" valign="top" width="100%">
-                                <tbody>
-                                  <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                                    <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0 auto; padding:0; text-align:left; font-size:16px; padding-bottom:0; padding-left:6px; padding-right:6px; width:574px" align="left" width="574">
-                                      <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                                        <tbody>
-                                          <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                                            <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; font-size:16px" align="left">
-                                              <p style="color:#0a0a0a; font-weight:normal; line-height:1.6; margin:0; padding:0; text-align:center; font-size:14px; margin-bottom:10px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="center">This digest was generated for
-                                                {{emailAddress}} on {{issueDateString}} and contains the {{linkCountPerEmail}} pocket links.
-                                                <a href="https://www.pocketdigest.xyz/preferences?token={{userId}}" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Adjust
-                                                  these settings</a>. </p>
-                                            </th>
-                                            <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; font-size:16px; visibility:hidden; width:0" align="left" width="0"></th>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top; position:relative; width:100%; display:table" align="left" valign="top" width="100%">
-                                <tbody>
-                                  <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                                    <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0 auto; padding:0; text-align:left; font-size:16px; padding-bottom:0; padding-left:6px; padding-right:6px; width:574px" align="left" width="574">
-                                      <table style="border-collapse:collapse; border-spacing:0; padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                                        <tbody>
-                                          <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
-                                            <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; font-size:16px" align="left">
-                                              <p style="color:#0a0a0a; font-weight:normal; line-height:1.6; margin:0; padding:0; text-align:center; font-size:14px; margin-bottom:10px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="center">
-                                                <a href="https://www.pocketdigest.xyz/privacy" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Privacy Policy</a> | 
-                                                <a href="https://www.pocketdigest.xyz/faq" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">FAQ</a> |
-                                                <a href="https://www.pocketdigest.xyz/preferences?token={{userId}}" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Settings</a> | 
-                                                <a href="mailto:pocketdigest@gmail.com" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">pocketdigest@gmail.com</a></p>
-                                            </th>
-                                            <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; font-size:16px; visibility:hidden; width:0" align="left" width="0"></th>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </th>
-                            <th style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; font-size:16px; visibility:hidden; width:0" align="left" width="0"></th>
-                          </tr>
-                        </tbody>
-                      </table>
+    img{
+        border:0 none;
+        height:auto;
+        line-height:100%;
+        outline:none;
+        text-decoration:none;
+    }
+
+    a img{
+        border:0 none;
+    }
+
+    .imageFix{
+        display:block;
+    }
+
+    table, td{
+        border-collapse:collapse;
+    }
+
+    #bodyTable{
+        height:100% !important;
+        margin:0;
+        padding:0;
+        width:100% !important;
+    }
+
+    .ExternalClass{
+      width:100%;
+    }
+
+    .ExternalClass,
+    .ExternalClass p,
+    .ExternalClass span,
+    .ExternalClass font,
+    .ExternalClass td,
+    .ExternalClass div{
+        line-height: 100%;
+    }
+    h1{
+        color:#f43b53 !important;
+    }
+    #outlook a{
+        padding:0;
+    }
+    table{
+        mso-table-lspace:0pt;
+        mso-table-rspace:0pt;
+    }
+    img{
+        -ms-interpolation-mode:bicubic;
+    }
+    body{
+        -webkit-text-size-adjust:100%;
+    }
+
+    @media only screen and (max-width: 480px){
+        #emailContainer{
+            width:100% !important;
+        }
+
+        #emailHeader, #emailBody, #emailFooter, .row{
+          height:auto !important;
+            max-width:480px !important;
+            width:100% !important;
+        }
+    }
+
+  </style>
+</head>
+<body>
+  <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+    <tr>
+        <td align="center" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="700" id="emailContainer">
+                <tr>
+                    <td align="center" valign="top">
+                        <table border="0" cellpadding="5" cellspacing="0" width="100%" id="emailHeader">
+                            <tr>
+                                <td align="center" valign="top">
+                                  <h1 style="text-align:center; color:#f43b53; font-weight:bold; line-height:1.3; margin:0; padding:0; margin-bottom:10px; word-wrap:normal; font-size:45px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="center">Personal Pocket Digest</h1>
+                                  <p style="color:#0a0a0a; font-weight:normal; line-height:1.6; margin:0; padding:0; text-align:center; font-size:14px; margin-bottom:10px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif; color:gray; text-decoration:none">
+                                    {{issueDateString}}</span></p>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p style="color:#0a0a0a; font-weight:normal; line-height:1.6; margin:0; padding:0; text-align:center; font-size:17px; margin-bottom:10px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">You receive this email because you are subscribed to <a href="https://www.pocketdigest.xyz/" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Personal Pocket Digest</a>.                              </td>
+                            </tr>
+                        </table>
                     </td>
-                  </tr>
-                </tbody>
-              </table>
-            </container>
-          </center>
+                </tr>
+                <tr>
+                    <td align="center" valign="top">
+                        <table border="0" cellpadding="5" cellspacing="0" width="100%" id="emailBody">
+                            <tr>
+                                <td align="center" valign="top">
+                                    {{rows}}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="top">
+                        <table border="0" cellpadding="20" cellspacing="0" width="100%" style="background:#ebebeb" id="emailFooter">
+                            <tr>
+                                <td align="center" valign="top">
+                                  <p style="color:#0a0a0a; font-weight:normal; line-height:1.6; margin:0; padding:0; text-align:center; font-size:14px; margin-bottom:10px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="center">This digest was generated for
+                                    {{emailAddress}} on {{issueDateString}} and contains the {{linkCountPerEmail}} pocket links.
+                                    <a href="https://www.pocketdigest.xyz/preferences?token={{userId}}" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Adjust
+                                      these settings</a>. </p>
+                                </td>
+                            </tr>
+                            <tr style="padding:0; text-align:left; vertical-align:top" align="left" valign="top">
+                              <td style="color:#0a0a0a; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; font-size:16px" align="left">
+                                <p style="color:#0a0a0a; font-weight:normal; line-height:1.6; margin:0; padding:0; text-align:center; font-size:14px; margin-bottom:10px; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="center">
+                                  <a href="https://www.pocketdigest.xyz/privacy" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Privacy Policy</a> | 
+                                  <a href="https://www.pocketdigest.xyz/faq" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">FAQ</a> |
+                                  <a href="https://www.pocketdigest.xyz/preferences?token={{userId}}" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">Settings</a> | 
+                                  <a href="mailto:pocketdigest@gmail.com" style="color:#f43b53; font-weight:normal; line-height:1.3; margin:0; padding:0; text-align:left; text-decoration:none; font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif" align="left">pocketdigest@gmail.com</a></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
         </td>
-      </tr>
-    </tbody>
-  </table>
+    </tr>
+</table>
 </body>
 </html>
