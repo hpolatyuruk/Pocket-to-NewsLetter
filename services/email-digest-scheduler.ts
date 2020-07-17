@@ -32,6 +32,7 @@ export class EmailDigestScheduler implements IEmailDigestScheduler {
       if (!links || links.length === 0) return;
       const htmlContent = await this.htmlEmailGenerator.generate(preferences, links);
       await this.emailSender.send(preferences.emailAddress, "Test Subject", htmlContent);
+      await this.pocketAPI.archiveLinks(preferences.accessToken, links);
     });
   }
 }
