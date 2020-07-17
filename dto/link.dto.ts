@@ -3,5 +3,6 @@ export class Link {
     public readonly id: number,
     public readonly url: string,
     public readonly title: string,
+    public readonly savedOn: Date,
   ) {}
 }

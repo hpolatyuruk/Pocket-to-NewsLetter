@@ -71,9 +71,7 @@ export class PocketAPI {
     for (const id of linksIds) {
       const linkObj = resObj.list[id];
       const title = linkObj.given_title ? linkObj.given_title : linkObj.resolved_title;
-      links.push(
-        new Link(linkObj.item_id, linkObj.given_url, title),
-      );
+      links.push(new Link(linkObj.item_id, linkObj.given_url, title, new Date(linkObj.time_added * 1000)));
     }
     return links;
   }

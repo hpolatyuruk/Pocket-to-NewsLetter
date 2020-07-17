@@ -32,6 +32,7 @@ export class HtmlEmailGenerator implements IHtmlEmailGenerator {
                 title: link.title ? link.title : link.url,
                 hostname: url.hostname,
                 protocol: url.protocol,
+                savedOn: link.savedOn.toDateString(),
             });
             rows += renderedRow;
             rowNo++;
