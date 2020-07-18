@@ -181,4 +181,12 @@ router.post("/save-preferences", async (ctx: any) => {
   };
 });
 
+router.get("/privacy", async (context: any) => {
+  await context.render("privacy", {});
+});
+
+router.get("/faq", async (context: any) => {
+  await context.render("faq", {});
+});
+
 export default router;

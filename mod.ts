@@ -93,14 +93,6 @@ app.use(async (ctx, next) => {
   await next();
 });
 
-// Static file handler middleware
-// app.use(async (context, next) => {
-//   await send(context, context.request.url.pathname, {
-//     root: `${Deno.cwd()}/static`,
-//   });
-//   await next();
-// });
-
 app.use(router.routes());
 app.use(router.allowedMethods());
 
