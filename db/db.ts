@@ -1,4 +1,4 @@
-import { Client } from "https://deno.land/x/postgres/mod.ts";
+import { Client } from "../deps.ts";
 
 class Database {
   public readonly client: Client;

@@ -1,16 +1,14 @@
-import "https://deno.land/x/dotenv/load.ts";
+import "./deps.ts";
 import {
   Application,
   HttpError,
   Status,
-  send,
-} from "https://deno.land/x/oak/mod.ts";
-import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine/mod.ts";
-import { Session } from "https://deno.land/x/session/mod.ts";
+  Session,
+  send,
+} from "./deps.ts";
 import router from "./routes/routes.ts";
 import { AppBootstrapper } from "./services/bootstrapper.ts";
 

@@ -1,4 +1,4 @@
-import { Client } from "https://deno.land/x/postgres/mod.ts";
+import { Client } from "../deps.ts";
 import { IUserPreferencesRepository } from "./user-preferences.repository.interface.ts";
 import { UserPreferences } from "../models/user-preferences.ts";
 import client from "../db/db.ts";

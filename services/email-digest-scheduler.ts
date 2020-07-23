@@ -1,4 +1,4 @@
-import { cron } from "https://deno.land/x/deno_cron/cron.ts";
+import { cron } from "../deps.ts";
 import { PocketAPI } from "./pocket-api.ts";
 import { IEmailDigestScheduler } from "./email-digest-scheduler.interface.ts";
 import { IEmailSender } from "./email-sender.interface.ts";

@@ -1,4 +1,5 @@
-import { Router, Context } from "https://deno.land/x/oak/mod.ts";
+import { v4 } from "../deps.ts";
+import { Router, Context } from "../deps.ts";
 import { PocketAPI } from "../services/pocket-api.ts";
 import { PocketAPIException } from "./../services/pocket-api.ts";
 import { UserPreferencesRepository } from "./../repositories/user-preferences.repository.ts";
@@ -8,7 +9,6 @@ import { EmailFrequency } from "../enums/email-frequency.enum.ts";
 import { CronExpressionBuilder } from "./../services/cron-expression-builder.ts";
 import { SortType } from "../enums/sort-type.enum.ts";
 import { DayOfWeek } from "../enums/day-of-week.enum.ts";
-import { v4 } from "https://deno.land/std/uuid/mod.ts";
 import { ModelMapper } from "../services/model-to-dto-mapper.ts";
 
 const router = new Router();
@@ -57,7 +57,7 @@ router.get("/login", async (ctx: any) => {
   ctx.response.redirect(
     `https://getpocket.com/auth/authorize?` +
       `request_token=${requestToken}` +
-      `&redirect_uri=http://localhost:3000/authorize/callback`,
+      `&redirect_uri=http://localhost:8000/authorize/callback`,
   );
 });
 
@@ -108,8 +108,9 @@ router.post("/save-preferences", async (ctx: any) => {
     return;
   }
 
-  const dto: UserPreferencesDto = (await ctx.request.body()).value;
-
+  const result = ctx.request.body({ type: "json" });
+  const dto: UserPreferencesDto = await result.value;
+  
   if (!dto.pocketUserName || dto.pocketUserName.trim() === "") {
     ctx.response.status = 400;
     ctx.response.body = {
@@ -187,6 +188,13 @@ router.get("/privacy", async (context: any) => {
 
 router.get("/faq", async (context: any) => {
   await context.render("faq", {});
+});
+
+router.get("/favicon.ico", async (context: any) => {
+  await context.send({
+    root: `${Deno.cwd()}/static/images`,
+    index: "favicon.ico",
+  });
 });
 
 export default router;

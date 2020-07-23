@@ -2,8 +2,8 @@ import { IHtmlEmailGenerator } from "./html-email-generator.interface.ts";
 import { UserPreferences } from "../models/user-preferences.ts";
 import { Link } from "../dto/link.dto.ts";
 import { EmailTemplateDto } from "../dto/email-template.dto.ts";
-import { engineFactory } from "https://deno.land/x/view_engine/mod.ts";
-import { Html5Entities } from "https://deno.land/x/html_entities@v1.0/mod.js";
+import { engineFactory } from "../deps.ts";
+import { Html5Entities } from "../deps.ts";
 
 export class HtmlEmailGenerator implements IHtmlEmailGenerator {
 
