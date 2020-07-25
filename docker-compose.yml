@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+    db:
+        image: postgres:latest
+        container_name: pocketdigest_db
+        build:
+            context: ./db
+        ports:
+            - ${DB_PORT}:${DB_PORT}
+        environment:
+            - POSTGRES_USER=${DB_USER}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
+            - POSTGRES_DB=${DB_NAME}
+            - PGDATA=/pgdata
+        volumes:
+            - ./app/data/pgdata:/var/lib/postgresql/data
+        networks: 
+            - deno
+    deno:
+        image: deno-docker:latest
+        container_name: pocketdigest_app
+        build: 
+            context: .
+            args:
+                app_port: ${APP_PORT}
+        depends_on:
+            - db
+        ports:
+            - ${APP_PORT}:${APP_PORT}
+        networks: 
+            - deno
+networks:
+  deno: {}
