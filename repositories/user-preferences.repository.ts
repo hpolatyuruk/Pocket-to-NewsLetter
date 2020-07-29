@@ -94,8 +94,8 @@ export class UserPreferencesRepository implements IUserPreferencesRepository {
   }
 
   private mapUserPreferencese(result: any): UserPreferences[] {
-    const array: UserPreferences[] = [];
-    if (result.rowCount === 0) return array;
+    const preferencesList: UserPreferences[] = [];
+    if (result.rowCount === 0) return preferencesList;
 
     const cols = result.rowDescription.columns;
 
@@ -119,9 +119,9 @@ export class UserPreferencesRepository implements IUserPreferencesRepository {
         row[this.getColIndexByName(cols, "createdat")];
       userPreferences.updatedAt =
         row[this.getColIndexByName(cols, "updatedat")];
-      array.push(userPreferences);
+        preferencesList.push(userPreferences);
     });
-    return array;
+    return preferencesList;
   }
 
   private getColIndexByName(cols: any, name: string): number {
