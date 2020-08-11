@@ -17,20 +17,20 @@
                     class="column is-8-tablet is-offset-2-tablet is-8-desktop is-offset-2-desktop is-6-widescreen is-offset-3-widescreen">
                     <h1 class="title is-2">Email Preferences</h1>
                     <form id="preferencesForm" action="/save-preferences" method="POST">
-                        <input type="hidden" id="pocketUserName" name="pocketUserName" value="{{ pocketUserName }}" />
-                        <input type="hidden" id="hdnEmailAddress" name="hdnEmailAddress" value="{{ emailAddress }}" />
+                        <input type="hidden" id="pocketUserName" name="pocketUserName" value="{{pocketUserName}}" />
+                        <input type="hidden" id="hdnEmailAddress" name="hdnEmailAddress" value="{{emailAddress}}" />
                         <input type="hidden" id="hdnLinkCountPerEmail" name="hdnLinkCountPerEmail"
-                            value="{{ linkCountPerEmail }}" />
+                            value="{{linkCountPerEmail}}" />
                         <input type="hidden" id="hdnEmailFrequency" name="hdnEmailFrequency"
-                            value="{{ emailFrequency }}" />
-                        <input type="hidden" id="hdnWeeklyOnDay" name="hdnWeeklyOnDay" value="{{ weeklyOnDay }}" />
-                        <input type="hidden" id="hdnSortType" name="hdnSortType" value="{{ sortType }}" />
-                        <input type="hidden" id="hdnSubscribed" name="hdnSubscribed" value="{{ subscribed }}" />
+                            value="{{emailFrequency}}" />
+                        <input type="hidden" id="hdnWeeklyOnDay" name="hdnWeeklyOnDay" value="{{weeklyOnDay}}" />
+                        <input type="hidden" id="hdnSortType" name="hdnSortType" value="{{sortType}}" />
+                        <input type="hidden" id="hdnSubscribed" name="hdnSubscribed" value="{{subscribed}}" />
                         <div class="field">
                             <label class="label">Email Address</label>
                             <div class="control">
                                 <input id="emailAddress" name="emailAddress" class="input" type="email"
-                                    value="{{ emailAddress }}" placeholder="Text input">
+                                    value="{{emailAddress}}" placeholder="Text input">
                             </div>
                         </div>
 

@@ -10,27 +10,30 @@ import { CronExpressionBuilder } from "./../services/cron-expression-builder.ts"
 import { SortType } from "../enums/sort-type.enum.ts";
 import { DayOfWeek } from "../enums/day-of-week.enum.ts";
 import { ModelMapper } from "../services/model-to-dto-mapper.ts";
+import { TemplateEngine } from "../services/template-engine.ts";
 
 const router = new Router();
 const pocketAPI = new PocketAPI(Deno.env.get("POCKET_CONSUMER_KEY") as string);
 const userPreferencesRepository = new UserPreferencesRepository();
+const templateEngine = new TemplateEngine();
 
 router.get("/", async (ctx: any) => {
   if (
-    await ctx.state.session.set("username") !== undefined &&
-    await ctx.state.session.get("accessToken") !== undefined
+    await ctx.session.get("username") !== undefined &&
+    await ctx.session.get("accessToken") !== undefined
   ) {
-    const pocketUserName = await ctx.state.session.set("username");
+    const pocketUserName = await ctx.session.get("username");
     const userPreferences = await userPreferencesRepository.getByUserName(
       pocketUserName,
     );
-    ctx.render("preferences", userPreferences);
+    await templateEngine.render(ctx, `${Deno.cwd()}/static/preferences.html`, ModelMapper.toDto(userPreferences));
     return;
   }
-  await ctx.send({
-    root: `${Deno.cwd()}/static`,
-    index: "index.html",
-  });
+  // await ctx.send({
+  //   root: `${Deno.cwd()}/static`,
+  //   index: "index.html",
+  // });
+  await templateEngine.render(ctx, `${Deno.cwd()}/static/index.html`);
 });
 
 router.get("/preferences", async (ctx: any) => {
@@ -47,13 +50,14 @@ router.get("/preferences", async (ctx: any) => {
     ctx.response.redirect("/");
     return;
   }
-  ctx.render("preferences", ModelMapper.toDto(preferences));
+  //ctx.render("preferences", ModelMapper.toDto(preferences));
+  await templateEngine.render(ctx, `${Deno.cwd()}/static/preferences.html`, ModelMapper.toDto(preferences));
   return;
 });
 
 router.get("/login", async (ctx: any) => {
   const requestToken = await pocketAPI.getRequestToken();
-  await ctx.state.session.set("requestToken", requestToken);
+  await ctx.session.set("requestToken", requestToken);
   ctx.response.redirect(
     `https://getpocket.com/auth/authorize?` +
       `request_token=${requestToken}` +
@@ -63,19 +67,19 @@ router.get("/login", async (ctx: any) => {
 
 router.get("/authorize/callback", async (ctx: any) => {
   try {
-    const requestToken = await ctx.state.session.get("requestToken");
+    const requestToken = await ctx.session.get("requestToken");
     const res = await pocketAPI.getUserAccesstoken(requestToken);
     const username = res.username;
     const accessToken = res.access_token;
-    await ctx.state.session.set("username", username);
-    await ctx.state.session.set("accessToken", accessToken);
+    await ctx.session.set("username", username);
+    await ctx.session.set("accessToken", accessToken);
     let userPreferences = await userPreferencesRepository.getByUserName(
       username,
     );
     if (userPreferences) {
       userPreferences.accessToken = accessToken;
       await userPreferencesRepository.update(userPreferences);
-      ctx.render("preferences", ModelMapper.toDto(userPreferences));
+      await templateEngine.render(ctx, `${Deno.cwd()}/static/preferences.html`, ModelMapper.toDto(userPreferences));
       return;
     }
     const dto = new UserPreferencesDto();
@@ -86,7 +90,7 @@ router.get("/authorize/callback", async (ctx: any) => {
     dto.sortType = SortType.Newest;
     dto.subscribed = true;
     dto.weeklyOnDay = DayOfWeek.Monday;
-    ctx.render("preferences", dto);
+    await templateEngine.render(ctx, `${Deno.cwd()}/static/preferences.html`, dto);
   } catch (e) {
     if (e instanceof PocketAPIException) {
       if (e.code === 182) { // User rejected code.
@@ -158,7 +162,7 @@ router.post("/save-preferences", async (ctx: any) => {
     exists = false;
     userPreferences = new UserPreferences();
     userPreferences.id = v4.generate();
-    userPreferences.accessToken = await ctx.state.session.get("accessToken");
+    userPreferences.accessToken = await ctx.session.get("accessToken");
   }
   userPreferences.pocketUserName = dto.pocketUserName;
   userPreferences.createdAt = new Date();
@@ -183,11 +187,13 @@ router.post("/save-preferences", async (ctx: any) => {
 });
 
 router.get("/privacy", async (context: any) => {
-  await context.render("privacy", {});
+  //await context.render("privacy", {});
+  await templateEngine.render(context, `${Deno.cwd()}/static/privacy.html`);
 });
 
 router.get("/faq", async (context: any) => {
-  await context.render("faq", {});
+  //await context.render("faq", {});
+  await templateEngine.render(context, `${Deno.cwd()}/static/faq.html`);
 });
 
 router.get("/favicon.ico", async (context: any) => {
