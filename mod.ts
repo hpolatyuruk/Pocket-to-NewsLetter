@@ -3,9 +3,6 @@ import {
   Application,
   HttpError,
   Status,
-  // viewEngine,
-  // engineFactory,
-  // adapterFactory,
   Session,
   send,
 } from "./deps.ts";
@@ -22,17 +19,6 @@ if (!consumerKey) {
 
 const bootStrapper = new AppBootstrapper(consumerKey);
 const app = new Application();
-
-// Register html template engine
-/*const handlebarsEngine = engineFactory.getHandlebarsEngine();
-const oakAdapter = adapterFactory.getOakAdapter();
-app.use(
-  viewEngine(oakAdapter, handlebarsEngine, {
-    viewRoot: "./static",
-    viewExt: ".html",
-    useCache: true,
-  }),
-);*/
 
 // Configuring Session for the Oak framework
 const session = new Session({ framework: "oak" });

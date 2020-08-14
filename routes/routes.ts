@@ -29,10 +29,6 @@ router.get("/", async (ctx: any) => {
     await templateEngine.render(ctx, `${Deno.cwd()}/static/preferences.html`, ModelMapper.toDto(userPreferences));
     return;
   }
-  // await ctx.send({
-  //   root: `${Deno.cwd()}/static`,
-  //   index: "index.html",
-  // });
   await templateEngine.render(ctx, `${Deno.cwd()}/static/index.html`);
 });
 
@@ -50,7 +46,6 @@ router.get("/preferences", async (ctx: any) => {
     ctx.response.redirect("/");
     return;
   }
-  //ctx.render("preferences", ModelMapper.toDto(preferences));
   await templateEngine.render(ctx, `${Deno.cwd()}/static/preferences.html`, ModelMapper.toDto(preferences));
   return;
 });
@@ -187,12 +182,10 @@ router.post("/save-preferences", async (ctx: any) => {
 });
 
 router.get("/privacy", async (context: any) => {
-  //await context.render("privacy", {});
   await templateEngine.render(context, `${Deno.cwd()}/static/privacy.html`);
 });
 
 router.get("/faq", async (context: any) => {
-  //await context.render("faq", {});
   await templateEngine.render(context, `${Deno.cwd()}/static/faq.html`);
 });
 
