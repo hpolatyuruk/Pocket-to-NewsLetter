@@ -5,12 +5,16 @@ import {
   Status,
   Session,
   send,
+  ENV,
 } from "./deps.ts";
 import router from "./routes/routes.ts";
 import { AppBootstrapper } from "./services/bootstrapper.ts";
 
-const port: number = parseInt(Deno.env.get("APP_PORT") as string);
-const consumerKey = Deno.env.get("POCKET_CONSUMER_KEY");
+//const port: number = parseInt(Deno.env.get("APP_PORT") as string);
+//const consumerKey = Deno.env.get("POCKET_CONSUMER_KEY");
+
+const port: number = parseInt(ENV.APP_PORT as string);
+const consumerKey = ENV.POCKET_CONSUMER_KEY;
 
 if (!consumerKey) {
   console.log(`Consumer key is undefined. App is terminated;`);

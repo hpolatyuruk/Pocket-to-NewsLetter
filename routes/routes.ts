@@ -1,5 +1,4 @@
-import { v4 } from "../deps.ts";
-import { Router, Context } from "../deps.ts";
+import { v4, Router, Context, ENV } from "../deps.ts";
 import { PocketAPI } from "../services/pocket-api.ts";
 import { PocketAPIException } from "./../services/pocket-api.ts";
 import { UserPreferencesRepository } from "./../repositories/user-preferences.repository.ts";
@@ -13,7 +12,7 @@ import { ModelMapper } from "../services/model-to-dto-mapper.ts";
 import { TemplateEngine } from "../services/template-engine.ts";
 
 const router = new Router();
-const pocketAPI = new PocketAPI(Deno.env.get("POCKET_CONSUMER_KEY") as string);
+const pocketAPI = new PocketAPI(ENV.POCKET_CONSUMER_KEY as string);
 const userPreferencesRepository = new UserPreferencesRepository();
 const templateEngine = new TemplateEngine();
 

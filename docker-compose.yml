@@ -7,14 +7,30 @@ services:
         build:
             context: ./db
         ports:
-            - ${DB_PORT}:${DB_PORT}
+            - 54320:${POSTGRES_PORT}
         environment:
-            - POSTGRES_USER=${DB_USER}
-            - POSTGRES_PASSWORD=${DB_PASSWORD}
-            - POSTGRES_DB=${DB_NAME}
+            - POSTGRES_HOST=${POSTGRES_HOST}
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_DB=${POSTGRES_DB}
             - PGDATA=/pgdata
         volumes:
-            - ./app/data/pgdata:/var/lib/postgresql/data
+            - ./db/pgdata:/var/lib/postgresql/data
+        networks: 
+            - deno
+    pgadmin:
+        image: dpage/pgadmin4
+        container_name: pocketdigest_pgadmin
+        depends_on:
+            - db
+        ports:
+            - ${PGADMIN_LISTEN_PORT}:${PGADMIN_LISTEN_PORT}
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+            - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+            - PGADMIN_LISTEN_PORT=${PGADMIN_LISTEN_PORT}
+        volumes:
+            - ./db/pgadmin:/var/lib/pgadmin
         networks: 
             - deno
     deno:
@@ -28,6 +44,8 @@ services:
             - db
         ports:
             - ${APP_PORT}:${APP_PORT}
+        environment:
+            - APP_ENV=production
         networks: 
             - deno
 networks:
