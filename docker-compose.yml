@@ -1,8 +1,8 @@
-version: "3.7"
+version: "3.8"
 
 services:
     db:
-        image: postgres:latest
+        image: pocket-digest-db:latest
         container_name: pocketdigest_db
         build:
             context: ./db
@@ -15,7 +15,8 @@ services:
             - POSTGRES_DB=${POSTGRES_DB}
             - PGDATA=/pgdata
         volumes:
-            - ./db/pgdata:/var/lib/postgresql/data
+            - db-data:/var/lib/postgresql/data
+        restart: always
         networks: 
             - deno
     pgadmin:
@@ -30,11 +31,12 @@ services:
             - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
             - PGADMIN_LISTEN_PORT=${PGADMIN_LISTEN_PORT}
         volumes:
-            - ./db/pgadmin:/var/lib/pgadmin
+            - pgadmin-data:/var/lib/pgadmin
+        restart: always
         networks: 
             - deno
     deno:
-        image: deno-docker:latest
+        image: pocket-digest-app:latest
         container_name: pocketdigest_app
         build: 
             context: .
@@ -46,7 +48,12 @@ services:
             - ${APP_PORT}:${APP_PORT}
         environment:
             - APP_ENV=production
+        restart: always
         networks: 
             - deno
 networks:
   deno: {}
+
+volumes:
+    db-data:
+    pgadmin-data:
