@@ -25,8 +25,10 @@ router.get("/", async (ctx: any) => {
     const userPreferences = await userPreferencesRepository.getByUserName(
       pocketUserName,
     );
-    await templateEngine.render(ctx, `${Deno.cwd()}/static/preferences.html`, ModelMapper.toDto(userPreferences));
-    return;
+    if(userPreferences){
+      await templateEngine.render(ctx, `${Deno.cwd()}/static/preferences.html`, ModelMapper.toDto(userPreferences));
+      return;
+    }
   }
   await templateEngine.render(ctx, `${Deno.cwd()}/static/index.html`);
 });
