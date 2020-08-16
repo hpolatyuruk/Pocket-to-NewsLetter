@@ -1,19 +1,6 @@
 version: "3.8"
 
-services:  
-    nginx: 
-        image: nginx:latest
-        container_name: pocketdigest_nginx
-        volumes:
-            - ./nginx.conf:/etc/nginx/nginx.conf
-            - ./nginx/error.log:/etc/nginx/error_log.log
-            - ./nginx/cache/:/etc/nginx/cache
-            - /etc/letsencrypt/:/etc/letsencrypt/
-        ports:
-            - 80:80
-            - 443:443
-        networks:
-            - pocketdigest
+services:
     db:
         image: pocket-digest-db:latest
         container_name: pocketdigest_db
@@ -31,7 +18,7 @@ services:
             - db-data:/var/lib/postgresql/data
         restart: always
         networks: 
-            - pocketdigest
+            - deno
     pgadmin:
         image: dpage/pgadmin4
         container_name: pocketdigest_pgadmin
@@ -47,7 +34,7 @@ services:
             - pgadmin-data:/var/lib/pgadmin
         restart: always
         networks: 
-            - pocketdigest
+            - deno
     deno:
         image: pocket-digest-app:latest
         container_name: pocketdigest_app
@@ -63,9 +50,9 @@ services:
             - APP_ENV=production
         restart: always
         networks: 
-            - pocketdigest
+            - deno
 networks:
-  pocketdigest: {}
+  deno: {}
 
 volumes:
     db-data:
