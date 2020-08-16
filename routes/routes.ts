@@ -57,7 +57,7 @@ router.get("/login", async (ctx: any) => {
   ctx.response.redirect(
     `https://getpocket.com/auth/authorize?` +
       `request_token=${requestToken}` +
-      `&redirect_uri=http://localhost:8000/authorize/callback`,
+      `&redirect_uri=http://pocketdigest.xyz/authorize/callback`,
   );
 });
 
