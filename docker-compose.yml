@@ -3,6 +3,7 @@ version: "3.8"
 services:  
     nginx:
         image: nginx:1.15-alpine
+        container_name: pocketdigest_nginx
         restart: always
         ports:
             - "80:80"
@@ -16,6 +17,7 @@ services:
             - pocketdigest
     certbot:
         image: certbot/certbot
+        container_name: pocketdigest_certbot
         entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
         volumes:
             - ./data/certbot/conf:/etc/letsencrypt
