@@ -15,5 +15,3 @@ export { Html5Entities } from "https://deno.land/x/html_entities@v1.0/mod.js";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 
 export const ENV = config({path: Deno.env.get("APP_ENV") === 'production' ? '.env' : '.env.dev'});
-console.log(ENV);
-
