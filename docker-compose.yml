@@ -20,6 +20,8 @@ services:
         volumes:
             - ./data/certbot/conf:/etc/letsencrypt
             - ./data/certbot/www:/var/www/certbot
+        networks:
+            - pocketdigest
     db:
         image: pocket-digest-db:latest
         container_name: pocketdigest_db
