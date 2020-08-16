@@ -60,6 +60,8 @@ services:
             - db
         ports:
             - ${APP_PORT}:${APP_PORT}
+        expose:
+            - ${APP_PORT}
         environment:
             - APP_ENV=production
         restart: always
