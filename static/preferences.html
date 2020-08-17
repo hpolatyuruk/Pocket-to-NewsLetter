@@ -11,112 +11,112 @@
 
 <body>
     <div class="container">
-        <section class="section">
-            <div class="columns">
-                <div
-                    class="column is-8-tablet is-offset-2-tablet is-8-desktop is-offset-2-desktop is-6-widescreen is-offset-3-widescreen">
-                    <h1 class="title is-2">Email Preferences</h1>
-                    <form id="preferencesForm" action="/save-preferences" method="POST">
-                        <input type="hidden" id="pocketUserName" name="pocketUserName" value="{{pocketUserName}}" />
-                        <input type="hidden" id="hdnEmailAddress" name="hdnEmailAddress" value="{{emailAddress}}" />
-                        <input type="hidden" id="hdnLinkCountPerEmail" name="hdnLinkCountPerEmail"
-                            value="{{linkCountPerEmail}}" />
-                        <input type="hidden" id="hdnEmailFrequency" name="hdnEmailFrequency"
-                            value="{{emailFrequency}}" />
-                        <input type="hidden" id="hdnWeeklyOnDay" name="hdnWeeklyOnDay" value="{{weeklyOnDay}}" />
-                        <input type="hidden" id="hdnSortType" name="hdnSortType" value="{{sortType}}" />
-                        <input type="hidden" id="hdnSubscribed" name="hdnSubscribed" value="{{subscribed}}" />
-                        <div class="field">
-                            <label class="label">Email Address</label>
-                            <div class="control">
-                                <input id="emailAddress" name="emailAddress" class="input" type="email"
-                                    value="{{emailAddress}}" placeholder="Text input">
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label class="label">Number of links per email:</label>
-                            <div class="control">
-                                <div class="select">
-                                    <select id="linkCountPerEmail" name="linkCountPerEmail">
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="15">15</option>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                    </select>
+        <div class="columns">
+            <div
+                class="column is-8-tablet is-offset-2-tablet is-8-desktop is-offset-2-desktop is-6-widescreen is-offset-3-widescreen is">
+                    <section class="section">
+                        <h1 class="title is-2">Email Preferences</h1>
+                        <form id="preferencesForm" action="/save-preferences" method="POST">
+                            <input type="hidden" id="pocketUserName" name="pocketUserName" value="{{pocketUserName}}" />
+                            <input type="hidden" id="hdnEmailAddress" name="hdnEmailAddress" value="{{emailAddress}}" />
+                            <input type="hidden" id="hdnLinkCountPerEmail" name="hdnLinkCountPerEmail"
+                                value="{{linkCountPerEmail}}" />
+                            <input type="hidden" id="hdnEmailFrequency" name="hdnEmailFrequency"
+                                value="{{emailFrequency}}" />
+                            <input type="hidden" id="hdnWeeklyOnDay" name="hdnWeeklyOnDay" value="{{weeklyOnDay}}" />
+                            <input type="hidden" id="hdnSortType" name="hdnSortType" value="{{sortType}}" />
+                            <input type="hidden" id="hdnSubscribed" name="hdnSubscribed" value="{{subscribed}}" />
+                            <div class="field">
+                                <label class="label">Email Address</label>
+                                <div class="control">
+                                    <input id="emailAddress" name="emailAddress" class="input" type="email"
+                                        value="{{emailAddress}}" placeholder="Text input">
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div class="field">
-                            <label class="label">Frequency of emails:</label>
-                            <div class="control">
-                                <div class="select">
-                                    <select name="emailFrequency" id="emailFrequency">
-                                        <option value="daily">Daily</option>
-                                        <option value="weekly">Weekly</option>
-                                        <option value="ever2day">Every 2 days</option>
-                                        <option value="ever3day">Every 3 days</option>
-                                        <option value="ever4day">Every 4 days</option>
-                                        <option value="ever5day">Every 5 days</option>
-                                        <option value="ever6day">Every 6 days</option>
-                                    </select>
+        
+                            <div class="field">
+                                <label class="label">Number of links per email:</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select id="linkCountPerEmail" name="linkCountPerEmail">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div id="weeklyOnDay" class="field">
-                            <label class="label">every:</label>
-                            <div class="control">
-                                <div class="select">
-                                    <select name="weeklyOnDay" id="weeklyOnDay">
-                                        <option value="1">Monday</option>
-                                        <option value="2">Tuesday</option>
-                                        <option value="3">Wednesday</option>
-                                        <option value="4">Thursday</option>
-                                        <option value="5">Friday</option>
-                                        <option value="6">Saturday</option>
-                                        <option value="7">Sunday</option>
-                                    </select>
+        
+        
+                            <div class="field">
+                                <label class="label">Frequency of emails:</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select name="emailFrequency" id="emailFrequency">
+                                            <option value="daily">Daily</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="ever2day">Every 2 days</option>
+                                            <option value="ever3day">Every 3 days</option>
+                                            <option value="ever4day">Every 4 days</option>
+                                            <option value="ever5day">Every 5 days</option>
+                                            <option value="ever6day">Every 6 days</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="field">
-                            <label class="label">In which order would you like to receive links?:</label>
-                            <div class="control">
-                                <div class="select">
-                                    <select name="sortType" id="sortType">
-                                        <option value="newest">Newest</option>
-                                        <option value="oldest">Oldest</option>
-                                    </select>
+        
+                            <div id="weeklyOnDay" class="field">
+                                <label class="label">every:</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select name="weeklyOnDay" id="weeklyOnDay">
+                                            <option value="1">Monday</option>
+                                            <option value="2">Tuesday</option>
+                                            <option value="3">Wednesday</option>
+                                            <option value="4">Thursday</option>
+                                            <option value="5">Friday</option>
+                                            <option value="6">Saturday</option>
+                                            <option value="7">Sunday</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="control">
-                                <label class="checkbox">
-                                    <input type="checkbox" name="subscribed" id="subscribed" />
-                                    I want my pocket links to be delivered to my inbox.
-                                </label>
+        
+                            <div class="field">
+                                <label class="label">In which order would you like to receive links?:</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select name="sortType" id="sortType">
+                                            <option value="newest">Newest</option>
+                                            <option value="oldest">Oldest</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="control">
-                                <button class="button is-link">Save</button>
+        
+                            <div class="field">
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="subscribed" id="subscribed" />
+                                        I want my pocket links to be delivered to my inbox.
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="field">
-                            <div id="msg"></div>
-                        </div>
-                    </form>
-                </div>
+        
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-link">Save</button>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div id="msg"></div>
+                            </div>
+                        </form>
+                    </section>
             </div>
-        </section>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

@@ -54,10 +54,15 @@ router.get("/preferences", async (ctx: any) => {
 router.get("/login", async (ctx: any) => {
   const requestToken = await pocketAPI.getRequestToken();
   await ctx.session.set("requestToken", requestToken);
+
+  const callbackUrl = Deno.env.get('APP_ENV') === 'production' ? 
+  'http://pocketdigest.xyz/authorize/callback' : 
+  'http://localhost:8000/authorize/callback';
+
   ctx.response.redirect(
     `https://getpocket.com/auth/authorize?` +
       `request_token=${requestToken}` +
-      `&redirect_uri=http://pocketdigest.xyz/authorize/callback`,
+      `&redirect_uri=${callbackUrl}`,
   );
 });
 
@@ -90,11 +95,15 @@ router.get("/authorize/callback", async (ctx: any) => {
   } catch (e) {
     if (e instanceof PocketAPIException) {
       if (e.code === 182) { // User rejected code.
-        ctx.render("rejected", {});
+        await templateEngine.render(ctx, `${Deno.cwd()}/static/rejected.html`, {});
+        return;
+      }
+      if(e.code === 159){ // Already used code.
+        ctx.response.redirect('/');
         return;
       }
     }
-    ctx.render("error", {});
+    await templateEngine.render(ctx, `${Deno.cwd()}/static/error.html`, {});
   }
 });
 
