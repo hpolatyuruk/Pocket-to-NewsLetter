@@ -28,6 +28,7 @@ The links you save to Pocket will be delivered in your inbox according to the em
 
 ## This is how an email looks like
 
-<p align="center">
+<div align="center" style="background-color: #fff;border-radius: 6px;box-shadow: 0 .5em 1em -0.125em rgba(10,10,10,.1),0 0px 0 1px rgba(10,10,10,.02);
+color: #4a5568;display: block; padding: 1.25rem;">
     <img alt="pocket digest" src="https://pocketdigest.xyz/static/images/pocket-digest-email.png" width="648" height="890" />
-</p>
+</div>
