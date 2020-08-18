@@ -25,8 +25,7 @@ export class EmailSender implements IEmailSender {
         { type: "text/html", value: htmlContent },
         ],
     };
-    
-    let response = await sendMail(mail, { apiKey: SENDGRID_API_KEY });
-    console.log(response);
+
+    await sendMail(mail, { apiKey: SENDGRID_API_KEY });
   }
 }
