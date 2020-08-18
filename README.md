@@ -6,7 +6,7 @@
 
 PocketDigest is a personal service that brings all the links you saved in Pocket to your email with the preferences you choose.
 
-<a href="https://pocketdigest.xyz/">Go to website ></a>
+<a href="https://pocketdigest.xyz/" target="_blank">Go to website ></a>
 
 ---
 
@@ -36,7 +36,7 @@ The links you save to Pocket will be delivered in your inbox according to the em
 
 ## Website
 
-<a href="https://pocketdigest.xyz/">https://pocketdigest.xyz</a>
+<a href="https://pocketdigest.xyz/" target="_blank">https://pocketdigest.xyz</a>
 
 ## Developer
 
