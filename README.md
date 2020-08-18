@@ -1,7 +1,7 @@
 # PocketDigest
 
 <p align="center">
-    <img alt="pocket digest" src="https://pocketdigest.xyz/static/images/pocket-email.jpg">
+    <img alt="pocket digest" src="https://pocketdigest.xyz/static/images/pocket-email.jpg" />
 </p>
 
 PocketDigest is a personal service that brings all the links you saved in Pocket to your email with the preferences you choose.
@@ -29,5 +29,5 @@ The links you save to Pocket will be delivered in your inbox according to the em
 ## This is how an email looks like
 
 <p align="center">
-    <img alt="pocket digest" src="https://pocketdigest.xyz/static/images/pocket-digest-email.png">
+    <img alt="pocket digest" src="https://pocketdigest.xyz/static/images/pocket-digest-email.png" width="648" height="890" />
 </p>
