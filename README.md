@@ -1,10 +1,12 @@
 # PocketDigest
 
-<p align="center">
+<div align="center">
     <img alt="pocket digest" src="https://pocketdigest.xyz/static/images/pocket-email.jpg" />
-</p>
+</div>
 
 PocketDigest is a personal service that brings all the links you saved in Pocket to your email with the preferences you choose.
+
+<a href="https://pocketdigest.xyz/">Go to website ></a>
 
 ---
 
@@ -28,7 +30,18 @@ The links you save to Pocket will be delivered in your inbox according to the em
 
 ## This is how an email looks like
 
-<div align="center" style="background-color: #fff;border-radius: 6px;box-shadow: 0 .5em 1em -0.125em rgba(10,10,10,.1),0 0px 0 1px rgba(10,10,10,.02);
-color: #4a5568;display: block; padding: 1.25rem;">
+<div align="center">
     <img alt="pocket digest" src="https://pocketdigest.xyz/static/images/pocket-digest-email.png" width="648" height="890" />
 </div>
+
+## Website
+
+<a href="https://pocketdigest.xyz/">https://pocketdigest.xyz</a>
+
+## Developer
+
+### Huseyin Polat Yuruk
+
+- [Website](https://huseyinpolatyuruk.com/)
+- [Twitter (@hpolatyuruk)](https://twitter.com/hpolatyuruk)
+- [Medium (@hpolatyuruk)](https://medium.com/@hpolatyuruk)
