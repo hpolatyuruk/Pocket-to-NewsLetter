@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
     db:
-        image: pocket-digest-db:latest
+        image: pocketdigest_db:latest
         container_name: pocketdigest_db
         build:
             context: ./db
@@ -36,7 +36,7 @@ services:
         networks: 
             - deno
     deno:
-        image: pocket-digest-app:latest
+        image: pocketdigest_app:latest
         container_name: pocketdigest_app
         build: 
             context: .
@@ -47,7 +47,7 @@ services:
         ports:
             - ${APP_PORT}:${APP_PORT}
         environment:
-            - APP_ENV=production
+            - APP_ENV=development
         restart: always
         networks: 
             - deno

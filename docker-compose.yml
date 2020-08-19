@@ -25,7 +25,7 @@ services:
         networks:
             - pocketdigest
     db:
-        image: pocket-digest-db:latest
+        image: pocketdigest_db:latest
         container_name: pocketdigest_db
         build:
             context: ./db
@@ -59,7 +59,7 @@ services:
         networks: 
             - pocketdigest
     deno:
-        image: pocket-digest-app:latest
+        image: pocketdigest_app:latest
         container_name: pocketdigest_app
         build: 
             context: .

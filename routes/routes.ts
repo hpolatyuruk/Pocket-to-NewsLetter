@@ -20,7 +20,8 @@ router.get("/", async (ctx: any) => {
   if (
     await ctx.session.get("username") !== undefined &&
     await ctx.session.get("accessToken") !== undefined &&
-    ctx.request.url.searchParams.get("s") === undefined
+  (ctx.request.url.searchParams.get("s") === null || 
+  ctx.request.url.searchParams.get("s") === undefined)
   ) {
     const pocketUserName = await ctx.session.get("username");
     const userPreferences = await userPreferencesRepository.getByUserName(
