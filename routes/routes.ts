@@ -10,11 +10,17 @@ import { SortType } from "../enums/sort-type.enum.ts";
 import { DayOfWeek } from "../enums/day-of-week.enum.ts";
 import { ModelMapper } from "../services/model-to-dto-mapper.ts";
 import { TemplateEngine } from "../services/template-engine.ts";
+import { EmailDigestScheduler } from "../services/email-digest-scheduler.ts";
+import { EmailSender } from "../services/email-sender.ts";
+import { HtmlEmailGenerator } from "../services/html-email-generator.ts";
 
 const router = new Router();
 const pocketAPI = new PocketAPI(ENV.POCKET_CONSUMER_KEY as string);
 const userPreferencesRepository = new UserPreferencesRepository();
 const templateEngine = new TemplateEngine();
+const emailSender = new EmailSender();
+const htmlEmailGenerator = new HtmlEmailGenerator();
+const scheduler = new EmailDigestScheduler(pocketAPI, emailSender, htmlEmailGenerator);
 
 router.get("/", async (ctx: any) => {
   if (
@@ -186,6 +192,8 @@ router.post("/save-preferences", async (ctx: any) => {
     userPreferences.createdAt = new Date();
     await userPreferencesRepository.create(userPreferences);
   }
+
+  scheduler.schedule(userPreferences);
 
   ctx.response.status = 200;
   ctx.response.body = {
