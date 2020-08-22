@@ -1,17 +1,9 @@
 import { IEmailSender } from "./email-sender.interface.ts";
-import { Link } from "../dto/link.dto.ts";
 import "../deps.ts";
-import { sendMail, IRequestBody } from "../deps.ts";
+import { sendMail, IRequestBody, ENV } from "../deps.ts";
 
 export class EmailSender implements IEmailSender {
   async send(emailAddress: string, subject: string, htmlContent: string): Promise<void> {
-
-    const { 
-      SMTP_SERVER, 
-      SMTP_PORT, 
-      SMTP_USERNAME, 
-      SMTP_PASSWORD,
-      SENDGRID_API_KEY } = Deno.env.toObject();
 
     let mail: IRequestBody = {
         personalizations: [
@@ -20,14 +12,11 @@ export class EmailSender implements IEmailSender {
             to: [{ name: "Pocket Digest", email: emailAddress }],
         },
         ],
-        from: { email: SMTP_USERNAME },
+        from: { email: ENV.SENDER_EMAIL },
         content: [
         { type: "text/html", value: htmlContent },
         ],
     };
-
-    console.log(htmlContent);
-    const result = await sendMail(mail, { apiKey: SENDGRID_API_KEY });
-    console.log(result);
+    await sendMail(mail, { apiKey: ENV.SENDGRID_API_KEY });
   }
 }

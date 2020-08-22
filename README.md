@@ -34,6 +34,32 @@ The links you save to Pocket will be delivered in your inbox according to the em
     <img alt="pocket digest" src="https://pocketdigest.xyz/static/images/pocket-digest-email.png" width="648" height="890" />
 </div>
 
+## Guide to Developers
+
+As first step, clone the project to your local computer using the following command:
+
+git clone https://github.com/hpolatyuruk/pocketdigest.git
+
+One you copied it, in the project root folder create an .env file that includes the following environment variables and set the values you prefer:
+
+* APP_PORT=
+* POSTGRES_HOST=pocketdigest_db
+* POSTGRES_PORT=5432
+* POSTGRES_USER=postgres
+* POSTGRES_PASSWORD=
+* POSTGRES_DB=
+* PGDATA=/pgdata
+* POCKET_CONSUMER_KEY=
+* SENDER_EMAIL
+* SENDGRID_API_KEY=
+* PGADMIN_DEFAULT_EMAIL=
+* PGADMIN_DEFAULT_PASSWORD=
+* PGADMIN_LISTEN_PORT=
+
+Afterward, run the following docker-compose command to bring the PocketDigest app and the database up.
+
+docker-compose -f docker-compose-dev.yml up
+
 ## Website
 
 <a href="https://pocketdigest.xyz/" target="_blank">https://pocketdigest.xyz</a>

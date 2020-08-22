@@ -63,14 +63,12 @@ router.get("/login", async (ctx: any) => {
   const requestToken = await pocketAPI.getRequestToken();
   await ctx.session.set("requestToken", requestToken);
 
-  const callbackUrl = Deno.env.get('APP_ENV') === 'production' ? 
-  'http://pocketdigest.xyz/authorize/callback' : 
-  'http://localhost:8000/authorize/callback';
+  const appBaseUrl = ENV.APP_BASE_URL ?? `http://localhost:${ENV.APP_PORT}`;
 
   ctx.response.redirect(
     `https://getpocket.com/auth/authorize?` +
       `request_token=${requestToken}` +
-      `&redirect_uri=${callbackUrl}`,
+      `&redirect_uri=${appBaseUrl}/authorize/callback`,
   );
 });
 
