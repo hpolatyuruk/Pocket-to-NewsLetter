@@ -8,7 +8,7 @@ export class TemplateEngine{
     replace(template: string, data: object): string{
         let replacedTemplate = template;
         for (const [key, value] of Object.entries(data)) {
-            replacedTemplate = replacedTemplate.replace(`{{${key}}}`, value);
+            replacedTemplate = replacedTemplate.replaceAll(`{{${key}}}`, value);
         }
         return replacedTemplate;
     }
